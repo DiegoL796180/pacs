@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <time.h>
+#include <sys/time.h>
 #include <ctime>
 #include <iomanip>
 
@@ -30,7 +30,11 @@ int main() {
             matriz2[i*col + j] = j + i*2 + 5;
         }
     }
-
+    long aux_sec = timestamp.tv_sec;
+    long aux_u = timestamp.tv_usec;
+    gettimeofday(&timestamp, NULL);
+    cout << "Inicializar Seconds: " << timestamp.tv_sec - aux_sec << endl
+        << "Microseconds: " << timestamp.tv_usec - aux_u << endl;
     for (int i = 0; i < fil; ++i) {
         for (int j = 0; j < col; ++j) {
             matrizM[i*col + j] = 0;
@@ -41,7 +45,10 @@ int main() {
     }
     // time = clock() - time;
     // cout << "seconds: " << fixed << setprecision(4) << ((float)time)/CLOCKS_PER_SEC << endl;
-    cout << "Seconds: " << timestamp.tv_sec << endl
-        << "Microseconds: " << timestamp.tv_usec << endl;
+    aux_sec = timestamp.tv_sec;
+    aux_u = timestamp.tv_usec;
+    gettimeofday(&timestamp, NULL);
+    cout << "Inicializar Seconds: " << timestamp.tv_sec - aux_sec << endl
+        << "Microseconds: " << timestamp.tv_usec - aux_u << endl;
     return 0;
 }

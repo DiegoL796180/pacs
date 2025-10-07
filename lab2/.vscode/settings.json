@@ -77,7 +77,8 @@
         "mutex": "cpp",
         "numeric": "cpp",
         "unordered_set": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "dense": "cpp"
     },
-    "cmake.sourceDirectory": "C:/Users/diegl/Desktop/PACS/lab1/eigen-3.4.0"
+    "cmake.sourceDirectory": "C:/Users/diegl/Desktop/PACS/pacs/lab2/eigen-3.4.0"
 }
