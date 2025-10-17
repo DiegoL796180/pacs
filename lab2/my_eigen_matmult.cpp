@@ -6,13 +6,13 @@
 
 using namespace std;
 using Eigen::MatrixXd;
- 
+// s
 int main() {
   struct timeval timestamp;
   gettimeofday(&timestamp, NULL);
   // clock_t time;
   // time = clock();
-  int n=2000;
+  int n=3000;
   MatrixXd m1(n, n);
   for (int i = 0 ; i<n;++i){
     for(int j = 0; j<n; ++j){
@@ -29,13 +29,15 @@ long aux_sec = timestamp.tv_sec;
 long aux_u = timestamp.tv_usec;
 gettimeofday(&timestamp, NULL);
 cout << "Inicializar Seconds: " << timestamp.tv_sec - aux_sec << endl
-     << "Microseconds: " << timestamp.tv_usec - aux_u << endl;
+     << "Microseconds: " << (timestamp.tv_sec - aux_sec)*1000000L + timestamp.tv_usec - aux_u << endl;
 MatrixXd m = m1 * m2;
 // time = clock() - time;
 // cout << "seconds: " << fixed << setprecision(4) << ((float)time)/CLOCKS_PER_SEC << endl;
 aux_sec = timestamp.tv_sec;
 aux_u = timestamp.tv_usec;
 gettimeofday(&timestamp, NULL);
+
 cout << "Multiplicar Seconds: " << timestamp.tv_sec - aux_sec << endl
-     << "Microseconds: " << timestamp.tv_usec - aux_u << endl;
+     << "Microseconds: " <<  (timestamp.tv_sec - aux_sec)*1000000L + timestamp.tv_usec - aux_u << endl;
 }
+// g++ -O2 -Wall -I C:\Users\diegl\Desktop\PACS\pacs\lab2\eigen-3.4.0 my_eigen_matmult.cpp -o my_eigen_matmult 

@@ -12,8 +12,9 @@ int main() {
     // time = clock();
     struct timeval timestamp;
     gettimeofday(&timestamp, NULL);
-    int const fil = 2000; //Const porque sino me saltaba error 
-    int const col = 2000;
+    int n = 3000;
+    int const fil = n; //Const porque sino me saltaba error 
+    int const col = n;
     std::vector<double> matriz1(fil*col);
     std::vector<double> matriz2(fil*col);
     std::vector<double> matrizM(fil*col);
@@ -34,7 +35,7 @@ int main() {
     long aux_u = timestamp.tv_usec;
     gettimeofday(&timestamp, NULL);
     cout << "Inicializar Seconds: " << timestamp.tv_sec - aux_sec << endl
-        << "Microseconds: " << timestamp.tv_usec - aux_u << endl;
+        << "Microseconds: " << (timestamp.tv_sec - aux_sec)*1000000L + timestamp.tv_usec - aux_u << endl;
     for (int i = 0; i < fil; ++i) {
         for (int j = 0; j < col; ++j) {
             matrizM[i*col + j] = 0;
@@ -49,6 +50,6 @@ int main() {
     aux_u = timestamp.tv_usec;
     gettimeofday(&timestamp, NULL);
     cout << "Inicializar Seconds: " << timestamp.tv_sec - aux_sec << endl
-        << "Microseconds: " << timestamp.tv_usec - aux_u << endl;
+        << "Microseconds: " << (timestamp.tv_sec - aux_sec)*1000000L + timestamp.tv_usec - aux_u << endl;
     return 0;
 }
